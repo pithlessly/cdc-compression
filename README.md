@@ -8,7 +8,7 @@ With 100 lines, the results looks like this:
 
 ![Desmos graph showing three curves representing cumulative byte counts for the first N versions. The data for the resulting curve can be found in `report.txt`.](image/growth.png).
 
-- The black dots (top) represent the number of bytes needed to store all versions without compression. Since every new version stores the previous version along with an additional line, it has quadratic growth.
+- The black dots (top) represent the number of bytes needed to store all versions without compression. Since every new version contains all the lines of the previous version along with an additional line, it has quadratic growth.
 - The green dots (bottom) represent the bytes needed to store only the latest version, which grows linearly.
 - The purple dots (middle) represent the bytes needed to store all versions using CDC deduplication. It is calculated as `(total bytes of all distinct chunks) + (4 * # of references to chunks)`, with the theory that the model could be implemented using having each version refer to a series of chunks by 32-bit hash.
 
